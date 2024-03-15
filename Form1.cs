@@ -1,3 +1,4 @@
+using OpenTK.Input;
 using ScottPlot;
 using ScottPlot.Rendering.RenderActions;
 using System.Windows.Forms;
@@ -9,11 +10,13 @@ namespace рпс3
         public Form1()
         {
             InitializeComponent();
+            button2.Enabled = false;
         }
 
-        private void Calc()
+        private void Graph()
         {
             ScottPlot.Plot myPlot = formsPlot1.Plot;
+            
             List<double> X = new();
             List<double> YPos = new();
             List<double> YNeg = new();
@@ -65,49 +68,24 @@ namespace рпс3
                         scatter.MarkerSize = 0;
                         scatter2.MarkerSize = 0;
                         formsPlot1.Refresh();
+                        button2.Enabled = true;
                     }
                 }
             }
         }
 
-        //private void SaveDataToFile()
-        //{
-        //    SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-        //    saveFileDialog1.Filter = "Text File|*.txt";
-        //    saveFileDialog1.Title = "Save to Text File";
-        //    saveFileDialog1.CheckFileExists = false;
-        //    saveFileDialog1.CheckPathExists = true;
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!double.TryParse(textBox2.Text + e.KeyChar.ToString(), out double a) && e.KeyChar != 8 && e.KeyChar != '-' && e.KeyChar != ',')
+            {
+                e.Handled = true;
 
-        //    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-        //    {
-        //        string filePath = saveFileDialog1.FileName;
-
-        //        using (StreamWriter writer = new StreamWriter(filePath))
-        //        {
-        //            writer.WriteLine(textBox1.Text);
-        //            writer.WriteLine(textBox2.Text);
-        //            writer.WriteLine(textBox3.Text);
-        //            writer.WriteLine(textBox4.Text);
-        //            writer.WriteLine(textBox5.Text);
-
-        //            foreach (DataGridViewRow row in dataGridView1.Rows)
-        //            {
-        //                foreach (DataGridViewCell cell in row.Cells)
-        //                {
-        //                    writer.Write(cell.Value);
-        //                    writer.Write("\t"); // Добавляем разделитель, например, табуляцию
-        //                }
-        //                writer.WriteLine(); // Переходим на новую строку после записи строки таблицы
-        //            }
-        //        }
-
-        //        MessageBox.Show("Данные из таблички успешно сохранены в файл: " + filePath);
-        //    }
-        //}
+            }
+        }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!double.TryParse(textBox2.Text + e.KeyChar.ToString(), out double a) && e.KeyChar != 8 && e.KeyChar != ',')
+            if (!double.TryParse(textBox3.Text + e.KeyChar.ToString(), out double a) && e.KeyChar != 8 && e.KeyChar != ',')
             {
                 e.Handled = true;
 
@@ -120,7 +98,7 @@ namespace рпс3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Calc();
+            Graph();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -130,8 +108,14 @@ namespace рпс3
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+
             File2.LoadDataFromFile(textBox1, textBox2, textBox3, textBox4, textBox5);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.ShowDialog();
         }
     }
 }
