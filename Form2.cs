@@ -16,5 +16,6 @@ namespace рпс3
         {
             InitializeComponent();
         }
+
     }
 }
