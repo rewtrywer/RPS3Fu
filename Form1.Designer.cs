@@ -209,11 +209,11 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 15F);
             label1.Location = new Point(584, 359);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(0, 35);
             label1.TabIndex = 13;
-            label1.Text = "label1";
             // 
             // Form1
             // 
@@ -236,6 +236,7 @@
             Controls.Add(formsPlot1);
             Name = "Form1";
             Text = "Овал Кассини";
+            
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

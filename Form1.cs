@@ -205,13 +205,13 @@ namespace рпс3
         }
 
         private void CalculateEquation()
-        { 
+        {
             double a = 1;
             double c = 1;
-           
+
             double expected = 0.05;
-            double x = Math.Sqrt(Math.Sqrt(Math.Pow(a, 4) + 4 * Math.Pow(c, 2) * Math.Pow(0.05, 2)) - Math.Pow(0, 2) - Math.Pow(c, 2));
-            
+            double x = Math.Sqrt(Math.Sqrt(Math.Pow(a, 4) + 4 * Math.Pow(c, 2) * Math.Pow(0.05, 2)) - Math.Pow(0.05, 2) - Math.Pow(c, 2));
+            x = Math.Round(x, 2);
             if (x == expected)
             {
                 label1.Text = "Тест пройден";
@@ -221,6 +221,8 @@ namespace рпс3
                 label1.Text = "Тест провален";
             }
         }
+
+      
     }
 }
 
