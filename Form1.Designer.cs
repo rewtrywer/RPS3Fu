@@ -83,6 +83,7 @@
             X.HeaderText = "X";
             X.MinimumWidth = 6;
             X.Name = "X";
+            X.ReadOnly = true;
             X.Width = 75;
             // 
             // YPos
@@ -91,6 +92,7 @@
             YPos.HeaderText = "YPos";
             YPos.MinimumWidth = 6;
             YPos.Name = "YPos";
+            YPos.ReadOnly = true;
             YPos.Width = 75;
             // 
             // YNeg
@@ -99,6 +101,7 @@
             YNeg.HeaderText = "YNeg";
             YNeg.MinimumWidth = 6;
             YNeg.Name = "YNeg";
+            YNeg.ReadOnly = true;
             YNeg.Width = 75;
             // 
             // textBox1
